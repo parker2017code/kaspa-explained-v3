@@ -1,0 +1,126 @@
+{
+ "updated": "2026-10-27T22:03:13Z",
+ "note": "Curated public posts. Plain-English lines are this site's summaries, not the authors' words.",
+ "items": [
+  {
+   "id": "2114771542944932100",
+   "handle": "gokugalax",
+   "date": "2026-10-26T17:30:01.000Z",
+   "url": "https://x.com/gokugalax/status/2114771542944932100",
+   "text": "our first independent kcc-20 count, counted on our own kaspa node at 12.00 utc on 26 oct\n\n240 kcc-20 tokens with holders\n2,646 holder outputs across 857 addresses\n4,560 transfers since 22 oct 05.53 utc\n\ntickers repeat, so our table lists every token by its covenant id",
+   "plain": "Someone counted the new tokens on their own copy of the network: 240 of them, held at 857 addresses, five days after the token rules became final.",
+   "tag": "community count",
+   "caveat": "A volunteer tally, not an official number."
+  },
+  {
+   "id": "2114467720683233347",
+   "handle": "kaspadotnews",
+   "date": "2026-10-25T21:22:44.000Z",
+   "url": "https://x.com/kaspadotnews/status/2114467720683233347",
+   "text": "Argent compiler refactor merged.\n\nkaspa-hashes 2.1.1 out, fixes the Windows build.\n\ncovenant_id index review, devs on paging and database limits.",
+   "plain": "The weekly 'what the builders did' roundup: a tool for writing Kaspa apps got cleaned up, and a Windows bug got fixed. Unglamorous. Important.",
+   "tag": "dev news",
+   "caveat": null
+  },
+  {
+   "id": "2113950984451817976",
+   "handle": "KasperoLabs",
+   "date": "2026-10-24T11:09:24.000Z",
+   "url": "https://x.com/KasperoLabs/status/2113950984451817976",
+   "text": "Today I am taking a break from coding (finally), so instead I want to update on where I am at -\n\n* Kozmic bridge - The concept is solid and proven on mainnet, both directions. It is possible to use Groth16/zk to prove Kaspa to Ethereum using a level-30 superblock ladder with 100",
+   "plain": "A solo builder got Kaspa and Ethereum to check each other's work with maths instead of a middleman, in both directions, on the real network. It's parked until the Ethereum side gets an outside review.",
+   "tag": "test, unaudited",
+   "caveat": "Ran on mainnet as a small test. Not a product. Not audited."
+  },
+  {
+   "id": "2113601328975098237",
+   "handle": "KaspaDollar",
+   "date": "2026-10-23T12:00:00.000Z",
+   "url": "https://x.com/KaspaDollar/status/2113601328975098237",
+   "text": "Today we are introducing KaspaDollar, an initiative led by core developer @asaefstroem to build the first decentralized stablecoin on the $KAS network.\n\nThe developments around @kccforum and the Toccata hardfork have considerably widened what Kaspa is capable of. Capability",
+   "plain": "A core developer wants to build a dollar-pegged coin that runs on Kaspa's own rules. Right now it's an announcement. Nothing is built yet.",
+   "tag": "announced",
+   "caveat": "An announcement. No working product yet."
+  },
+  {
+   "id": "2113336626277446032",
+   "handle": "michaelsuttonil",
+   "date": "2026-10-22T18:28:10.000Z",
+   "url": "https://x.com/michaelsuttonil/status/2113336626277446032",
+   "text": "yup. on eth it’s called WETH--an ERC-20 wrapper for ETH. the difference is that all the backing ETH is held under one contract address, while individual WETH balances are tracked in the contract’s storage.\n\non kaspa, each UTXO simply holds the actual KAS together with the KAS20",
+   "plain": "How tokens differ here: on Ethereum one big contract keeps a list of who owns what. On Kaspa, each coin carries its own token and its own rules, like a banknote with the terms printed on it.",
+   "tag": "explainer",
+   "caveat": null
+  },
+  {
+   "id": "2113329374220910995",
+   "handle": "IzioDev",
+   "date": "2026-10-22T17:59:21.000Z",
+   "url": "https://x.com/IzioDev/status/2113329374220910995",
+   "text": "Kas the coin can also be 'tokenized' as a kcc-20.\n\nthe need may not be very clear to everyone, but basically: my L1 app may want to uniformly manage kcc-20 and Kas the coin, without extra 'custom code'.\n\n@manyfest_ details one of the direct use-case.\n\ni have been convinced that",
+   "plain": "Even KAS itself can be wrapped as one of the new tokens, so an app can treat 'the coin' and 'a token' the same way. A plumbing win for builders.",
+   "tag": "proposed",
+   "caveat": null
+  },
+  {
+   "id": "2112920461176655927",
+   "handle": "manyfest_",
+   "date": "2026-10-21T14:54:28.000Z",
+   "url": "https://x.com/manyfest_/status/2112920461176655927",
+   "text": "4 months ago Toccata enabled native L1 programmability.\n Last month, SilverScript brought a high-level language for covenants. \nToday KCC-20 finalization gives the ecosystem a shared convention for defining, deploying, interacting with, and composing fungible token assets.\n\nThere",
+   "plain": "A timeline in three lines: June, Kaspa learned to enforce rules on coins. September, a programming language for those rules shipped. October 21, a shared standard for tokens became final.",
+   "tag": "milestone",
+   "caveat": null
+  },
+  {
+   "id": "2112660896136994874",
+   "handle": "WellerOlaf",
+   "date": "2026-10-20T21:43:03.000Z",
+   "url": "https://x.com/WellerOlaf/status/2112660896136994874",
+   "text": "Kaspa Privacy Initiative — Another Exciting Step! 💚🚀\n\nJust yesterday, we demonstrated private KAS payments on Kaspa TN10.\n\nNow we've tested something equally important: what happens if the original operator disappears?\n\nAnd it worked! 🎉\n\n✅ Original application controller",
+   "plain": "Private payments on Kaspa's test network, and a bonus trick: the payment could still be recovered after the people running the system walked away.",
+   "tag": "testnet",
+   "caveat": "Test network only. Experimental and not audited."
+  },
+  {
+   "id": "2112516625186574491",
+   "handle": "asaefstroem",
+   "date": "2026-10-20T12:09:46.000Z",
+   "url": "https://x.com/asaefstroem/status/2112516625186574491",
+   "text": "PR #31 (KCC-20 Last Call advancement) was merged on October 7, 2026 at 20:38:09 UTC. 14 days from that is October 21. \n\nKCC-20 is final on October 21.",
+   "plain": "The paperwork math: the token standard entered its last-call period on Oct 7, waited 14 days, and became final on Oct 21.",
+   "tag": "milestone",
+   "caveat": null
+  },
+  {
+   "id": "2112159453373980836",
+   "handle": "OriNewman",
+   "date": "2026-10-19T12:30:30.000Z",
+   "url": "https://x.com/OriNewman/status/2112159453373980836",
+   "text": "Published KIP 22 to help Kaspa users better protect their funds from future quantum attackers by keeping public keys hidden until spending",
+   "plain": "A proposal to keep your wallet's public key hidden until you spend, so a future quantum computer has less to aim at. No network upgrade needed. Wallets would just opt in.",
+   "tag": "proposed",
+   "caveat": "A proposal. It is now an open draft, not a finished standard."
+  },
+  {
+   "id": "2111077647413375038",
+   "handle": "supertypo_kas",
+   "date": "2026-10-16T12:51:47.000Z",
+   "url": "https://x.com/supertypo_kas/status/2111077647413375038",
+   "text": "tl;dr: It should be better than 'hdd' as-is due to the larger write cache, higher buffer mem and much lower compact freq. It syncs in about 6h on a 5400rpm (cmr) hdd, and is able to maintain steady state under current mainnet conditions. \n\nAt full network load it will be unable",
+   "plain": "A full Kaspa node, the thing that checks every block, synced in about 6 hours on an old-style spinning hard drive. Ten blocks a second on hardware from a junk drawer, at today's traffic.",
+   "tag": "dev news",
+   "caveat": "At today's network load. Heavier load needs faster disks."
+  },
+  {
+   "id": "2110998749463929081",
+   "handle": "michaelsuttonil",
+   "date": "2026-10-16T07:38:16.000Z",
+   "url": "https://x.com/michaelsuttonil/status/2110998749463929081",
+   "text": "i believe we can get to a stable (and secure) testnet this year",
+   "plain": "Asked whether the big consensus upgrade (DAGKnight) arrives in 2026, a lead developer said he thinks a stable test network is possible this year. Test network. Not the real one.",
+   "tag": "testnet target",
+   "caveat": "A hope for a test network. No date for the main network."
+  }
+ ]
+}

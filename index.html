@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Kaspa, on receipt · a shop that never closes</title>
+<meta name="description" content="Kaspa explained as one long till receipt, printed live from the real network at about ten slips a second. Every claim has its source printed underneath. No prices.">
+<meta property="og:title" content="Kaspa, on receipt">
+<meta property="og:description" content="A shop that never closes and keeps every receipt. Printed live, sourced line by line, no prices.">
+<meta property="og:image" content="https://parker2017code.github.io/kaspa-explained-v3/img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#23211e">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/jbmono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/receipt.css">
+</head>
+<body>
+<a class="skip" href="#items">Skip to the explanation</a>
+
+<header class="printer" aria-label="Live printer">
+  <div class="printer-top">
+    <span class="model">KAS-10 &middot; thermal</span>
+    <span class="led" id="led" role="status"><i aria-hidden="true"></i><span id="ledtxt">warming up</span></span>
+  </div>
+  <div class="slot" aria-hidden="true"></div>
+</header>
+
+<main class="roll">
+  <article class="paper" id="paper">
+    <div class="tape" aria-label="Blocks printing live">
+      <ol id="tape" aria-hidden="true"></ol>
+      <p class="lastread" id="lastread"><span>LAST READ: waiting for the network…</span></p>
+      <p class="tape-cap" id="tapecap">One line per block, at the rate the network is measured making them.</p>
+    </div>
+
+    <section class="head">
+      <p class="center small">** FAN-MADE · NOT OFFICIAL **</p>
+      <h1 class="dh center">KASPA</h1>
+      <p class="center">A shop that never closes<br>and keeps every receipt.</p>
+      <hr class="eq">
+      <dl class="lines" id="totals">
+        <div><dt>Block No. <span class="small">(blue score)</span></dt><dd id="t-score">…</dd></div>
+        <div><dt>Slips not yet stapled in</dt><dd id="t-tips">…</dd></div>
+        <div><dt>New KAS per block</dt><dd id="t-reward">…</dd></div>
+        <div><dt>Guesses per second</dt><dd id="t-hash">…</dd></div>
+        <div><dt>Coins issued so far</dt><dd id="t-supply">…</dd></div>
+      </dl>
+      <p class="small" id="t-src">Live from <a href="https://api.kaspa.org/docs">api.kaspa.org</a><sup><a class="r" href="#r8">8</a></sup>. If it can't be reached, this says SIMULATED.</p>
+    </section>
+
+    <nav class="items-nav" id="items" aria-label="Items on this receipt">
+      <hr>
+      <p class="small">ITEMS</p>
+      <ol class="toc">
+        <li><a href="#i1">Ten slips a second</a></li>
+        <li><a href="#i2">Many tills, one roll</a></li>
+        <li><a href="#i3">Try to cheat the till</a></li>
+        <li><a href="#i4">The price list</a></li>
+        <li><a href="#i5">Paid, on order, IOU</a></li>
+        <li><a href="#i6">Overheard at the counter</a></li>
+        <li><a href="#i7">Fine print</a></li>
+      </ol>
+    </nav>
+
+    <section id="i1" aria-labelledby="h1i">
+      <hr>
+      <h2 id="h1i"><span class="no">01</span> Ten slips a second</h2>
+      <p>Kaspa is a ledger: a record of who paid whom, kept by many computers that don't trust each other. To add a page, a computer burns electricity solving a puzzle (proof of work, as in Bitcoin).</p>
+      <p>Bitcoin adds a page about every 10 minutes<sup><a class="r" href="#r1">1</a></sup>. Kaspa adds about ten a second<sup><a class="r" href="#r2">2</a>,<a class="r" href="#r3">3</a></sup>. The tape at the top is that, live.</p>
+      <dl class="lines">
+        <div><dt>Bitcoin, one page</dt><dd>~600 s</dd></div>
+        <div><dt>Kaspa, one page</dt><dd>~0.1 s</dd></div>
+      </dl>
+    </section>
+
+    <section id="i2" aria-labelledby="h2i">
+      <hr>
+      <h2 id="h2i"><span class="no">02</span> Many tills, one roll</h2>
+      <p>At that speed, two computers often finish a page at the same moment, like two tills ringing up at once. What happens to the second slip?</p>
+      <div class="sim" id="tills">
+        <div class="seg" role="group" aria-label="Choose the rules">
+          <button type="button" data-rule="chain" aria-pressed="true">One-till rules</button>
+          <button type="button" data-rule="dag" aria-pressed="false">Kaspa rules</button>
+        </div>
+        <div class="slips" aria-hidden="true">
+          <div class="slip" id="slipA"><b>SLIP A</b><span>till 1</span></div>
+          <div class="slip" id="slipB"><b>SLIP B</b><span>till 2</span><i class="stamp" id="voidB">VOID</i></div>
+        </div>
+        <div class="next" id="nextslip" aria-hidden="true">NEXT SLIP &larr; points back to: <b id="parents">A</b></div>
+        <p class="out" id="tillout" aria-live="polite"></p>
+      </div>
+      <p>Each Kaspa block can point back to up to 16 earlier blocks<sup><a class="r" href="#r5">5</a></sup>, so parallel slips get stapled together instead of binned. A rule called GHOSTDAG then puts every slip in one agreed order<sup><a class="r" href="#r4">4</a></sup>.</p>
+      <p class="small" id="mergeline">The newest block we read merged <b id="merged">…</b> others and had <b id="parentsn">…</b> parents.</p>
+    </section>
+
+    <section id="i3" aria-labelledby="h3i">
+      <hr>
+      <h2 id="h3i"><span class="no">03</span> Try to cheat the till</h2>
+      <p>The classic scam: spend coins in public, secretly print slips where you spend them again, then reveal yours. Have a go.</p>
+      <div class="sim">
+        <label for="hide">Print in secret for <b id="hidev">30</b> seconds</label>
+        <input id="hide" type="range" min="2" max="120" value="30" step="1">
+        <button type="button" class="key" id="reveal">Reveal my slips</button>
+        <pre class="out" id="cheatout" aria-live="polite">Pick a time, then reveal.</pre>
+      </div>
+      <p>Honest slips point back at every slip their makers have seen. Yours saw none of theirs. If more than 124 slips were made that yours never saw<sup><a class="r" href="#r5">5</a></sup>, GHOSTDAG stamps yours red<sup><a class="r" href="#r4">4</a></sup>.</p>
+      <p>Red slips stay on the roll but are ordered after the honest ones, so the honest spend wins. Their maker isn't paid; whoever staples them in is<sup><a class="r" href="#r6">6</a></sup>.</p>
+      <p>After 12 hours, the order is final and nodes won't accept a rewrite<sup><a class="r" href="#r7">7</a></sup>.</p>
+    </section>
+
+    <section id="i4" aria-labelledby="h4i">
+      <hr>
+      <h2 id="h4i"><span class="no">04</span> The price list</h2>
+      <p class="center stamp-line"><span class="stamp big">NO PRICES</span></p>
+      <p>What we can print is how many new coins appear. Every block pays its maker fresh KAS, on a fixed table that shrinks monthly and halves yearly<sup><a class="r" href="#r6">6</a></sup>.</p>
+      <dl class="lines">
+        <div><dt>Payout per block now</dt><dd id="p-now">…</dd></div>
+        <div><dt>Next step down</dt><dd id="p-next">…</dd></div>
+        <div><dt>Issued so far</dt><dd id="p-pct">…</dd></div>
+      </dl>
+      <p class="small">New KAS per second, first month of each year<span id="p-est"></span>:</p>
+      <pre class="bars" id="bars" role="img" aria-label="Bar chart: new coins per second fall by half every year"></pre>
+    </section>
+
+    <section id="i5" aria-labelledby="h5i">
+      <hr>
+      <h2 id="h5i"><span class="no">05</span> Paid, on order, IOU</h2>
+      <p>What's actually rung up, and what's only been quoted.</p>
+      <p class="legend small"><span class="st live">PAID</span> live on the main network · <span class="st test">ON ORDER</span> on a test network · <span class="st page">QUOTE</span> written up, not built · <span class="st comp">IOU</span> announced or prototype</p>
+      <ul class="board" id="board"></ul>
+    </section>
+
+    <section id="i6" aria-labelledby="h6i">
+      <hr>
+      <h2 id="h6i"><span class="no">06</span> Overheard at the counter</h2>
+      <p class="small" id="feedupd">Real posts from Kaspa builders. Plain-English lines are ours.</p>
+      <ul class="feed" id="feed"><li>Loading…</li></ul>
+    </section>
+
+    <section id="i7" aria-labelledby="h7i">
+      <hr>
+      <h2 id="h7i"><span class="no">07</span> Fine print</h2>
+            <ol class="fine">
+        <li><b>Speed costs something.</b> More blocks means more data for everyone checking the ledger. Watch whether lots of people keep running nodes.</li>
+        <li><b>Who pays later?</b> The new-coin payout keeps halving. Eventually fees must pay for security, and fees are tiny today.</li>
+        <li><b>Electricity is the bill.</b> Proof of work buys security with power and chips. Faster blocks don't shrink that bill.</li>
+      </ol>
+    </section>
+
+    <section id="receipts" aria-labelledby="hr">
+      <hr class="eq">
+      <h2 id="hr" class="center">RECEIPTS</h2>
+      <p class="small center">Where every numbered claim comes from.</p>
+      <ol class="src">
+        <li id="r1"><a href="https://bitcoin.org/bitcoin.pdf">Bitcoin paper, section 7: blocks every 10 minutes</a></li>
+        <li id="r2"><a href="https://github.com/kaspanet/rusty-kaspa/releases/tag/v1.0.0">Crescendo: 10 blocks a second (rusty-kaspa v1.0.0)</a></li>
+        <li id="r3"><a href="https://github.com/kaspanet/kips/blob/master/kip-0014.md">KIP-14: the Crescendo upgrade</a></li>
+        <li id="r4"><a href="https://eprint.iacr.org/2018/104">PHANTOM / GHOSTDAG paper</a></li>
+        <li id="r5"><a href="https://github.com/kaspanet/rusty-kaspa/blob/master/consensus/core/src/config/bps.rs">bps.rs: k = 124, up to 16 parents at 10 a second</a></li>
+        <li id="r6"><a href="https://github.com/kaspanet/rusty-kaspa/blob/master/consensus/src/processes/coinbase.rs">coinbase.rs: payout table, red rewards to the merging block</a></li>
+        <li id="r7"><a href="https://github.com/kaspanet/rusty-kaspa/blob/master/consensus/core/src/config/constants.rs">constants.rs: 12-hour finality</a></li>
+        <li id="r8"><a href="https://api.kaspa.org/docs">api.kaspa.org: the live numbers</a></li>
+      </ol>
+    </section>
+
+    <section class="foot" aria-labelledby="hf">
+      <hr class="eq">
+      <h2 id="hf" class="sr">Your visit</h2>
+      <dl class="lines">
+        <div><dt>Time at the counter</dt><dd id="f-time">0:00</dd></div>
+        <div><dt>Blocks added meanwhile</dt><dd id="f-blocks">…</dd></div>
+        <div><dt>Slips thrown away</dt><dd>0</dd></div>
+      </dl>
+      <hr class="eq">
+      <p class="center dh2">THANK YOU</p>
+      <p class="center small">Not financial advice. Keep for your records.</p>
+      <div class="barcode" id="barcode" role="img" aria-label="Barcode of the current block number"></div>
+      <p class="center small" id="bcnum">&nbsp;</p>
+      <div class="keys">
+        <button type="button" class="key" id="print">Print</button>
+        <button type="button" class="key" id="copy">Copy as text</button>
+      </div>
+      <p class="center small">Fan-made preview. Not affiliated with any Kaspa team. X posts belong to their authors. <a href="https://github.com/parker2017code/kaspa-explained-v3">Source</a></p>
+    </section>
+  </article>
+  <div class="tear" aria-hidden="true"></div>
+</main>
+<script src="js/data.js"></script>
+<script src="js/receipt.js"></script>
+</body>
+</html>

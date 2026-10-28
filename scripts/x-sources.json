@@ -1,0 +1,32 @@
+{
+ "comment": "Handles whose public posts may appear in the feed. Edit freely. Posts are still hand-checked: every item needs a plain-English line written by a person or agent.",
+ "handles": [
+  "michaelsuttonil",
+  "OriNewman",
+  "supertypo_kas",
+  "IzioDev",
+  "asaefstroem",
+  "kaspadotnews",
+  "manyfest_",
+  "WellerOlaf",
+  "KasperoLabs",
+  "KaspaDollar",
+  "gokugalax"
+ ],
+ "query": "(kaspa OR toccata OR covenant OR KCC-20 OR silverscript OR dagknight OR vprogs OR rusty-kaspa) -is:retweet -is:reply",
+ "block_words": [
+  "price",
+  "pump",
+  "moon",
+  "buy ",
+  "presale",
+  "airdrop",
+  "giveaway",
+  "100x",
+  "chart",
+  "ATH",
+  "send kas",
+  "donate",
+  "listing"
+ ]
+}
